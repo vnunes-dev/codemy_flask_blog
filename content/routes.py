@@ -1,5 +1,5 @@
 from content import app
-from flask import render_template
+from flask import render_template, flash
 from content.forms import FormEntryName
 
 # Create a route for HOME page: 
@@ -19,8 +19,9 @@ def name():
     form = FormEntryName()
     # Validate form
     if form.validate_on_submit():
-        name = form.name.data
+        name = form.name.data.title()  # converts the name to Title Case
         form.name.data = ''
+        flash("Form submitted successfully!")
         
     return render_template('name.html', name=name, form=form)
 
