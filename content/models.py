@@ -6,3 +6,7 @@ class Users(database.Model):
     name = database.Column(database.String(200), nullable=False)
     email = database.Column(database.String(120), nullable=False, unique=True)
     date_added = database.Column(database.DateTime, default=datetime.utcnow)
+
+    # Create a String
+    def __repr__(self):
+        return '<Name %r>' % self.name

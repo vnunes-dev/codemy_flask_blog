@@ -6,6 +6,16 @@ from datetime import datetime
 
 app = Flask(__name__)       # creating instance of the class Flask
 
+# add this app_context to create DataBase file in Terminal:
+app.app_context().push()
+'''
+Run in Terminal:
+    >python
+    >>>from content import app
+    >>>from content import database
+    >>>database.create_all()
+'''
+
 #region  --------------------- Create a security TOKEN  ---------------------------
 app.config['SECRET_KEY'] = 'c2b69d65260d6d7fd2beec11b04bebc5'       # security token for the website, details below:
 '''
